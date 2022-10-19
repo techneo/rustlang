@@ -1,5 +1,6 @@
 use std::io::{self,Write};
 use rand::Rng;
+use std::cmp::Ordering;
 
 fn main() {
     // user guess
@@ -7,9 +8,9 @@ fn main() {
     let mut rng = rand::thread_rng();
     let mut _guess:i32 = 0;
     // random number
-    let _secret_no:i32 = rng.gen_range(0,100);
+    let secret_no:i32 = rng.gen_range(0,100);
     let mut guess=String::new();
-    println!("secret number is {}",_secret_no);
+    println!("secret number is {}",secret_no);
     
     println!("Guess a number between 1 and 100 :999 to quit");
 
@@ -19,16 +20,16 @@ fn main() {
         //do not use without clearling the variable
         guess.clear();
         println!("Enter value:");
-        io::stdout().flush();
+        io::stdout().flush().expect("Issue in flushing");
         io::stdin().read_line(&mut guess).expect("error found");
-        let mut guess:i32  = guess.trim().parse().expect("Incorrect value entered by user");
-        if guess == 999 || guess == _secret_no
+        let guess:i32  = guess.trim().parse().expect("Incorrect value entered by user");
+        match guess.cmp(&secret_no)
         {
-            break;
-        }
-        if guess == _secret_no
-        {
-            println!("You got it !!");
+            Ordering::Less => println!("Too Small!"),
+            Ordering::Greater => println!("To Big!"),
+            Ordering::Equal => { println!("You Win !!");
+                break;
+            }
         }
         
     }
