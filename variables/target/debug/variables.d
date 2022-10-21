@@ -1,1 +1,1 @@
-/home/vagrant/code/rustlang/variables/target/debug/variables: /home/vagrant/code/rustlang/variables/src/main.rs
+D:\Work\rust\code\rustlang\variables\target\debug\variables.exe: D:\Work\rust\code\rustlang\variables\src\main.rs
