@@ -10,6 +10,9 @@ fn main() {
         //println!("The value is live here {test_var}");
 
         {
+        // The double colon :: operator allows us to namespace this particular 
+        //from function under the String type rather than using some sort of name like string_from
+
         let mut s = String::from("hello");
         println!("Value of string is {s}");
 
