@@ -1,4 +1,5 @@
 //new comment
+//adding new comment
 fn main() {
     println!("Hello, world!");
     {
